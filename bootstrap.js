@@ -24,10 +24,22 @@ function startup(data, reason) {
   // `Cu.import("resource://myaddon/foobar.jsm");`
   PullStarter.registerResourceHost("myaddon", data);
 
+  // We could now import some code, e.g.:
+  Cu.import("resource://myaddon/foobar.jsm");
+
   // Register a chrome.manifest (requires Firefox 8+). This will allow you to
   // register chrome:// URLs in a chrome.manifest which is necessary for XUL
   // windows or tabs.
   PullStarter.registerChromeManifest(data);
+
+  // Register a few default preferences. We specify the pref branch prefix
+  // (including the trailing period!) and the default preferences as a simple
+  // object. Supported types are booleans, numbers (integers), and strings.
+  PullStarter.registerDefaultPrefs("extensions.myaddon.", {
+    awesome: true,
+    how_many: 42,
+    greeting: "ohai"
+  });
 
   // Let's add a stylesheet to all browser windows.
   PullStarter.watchWindows("navigator:browser", function (window) {
