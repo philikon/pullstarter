@@ -1,5 +1,5 @@
-Cu.import("resource://gre/modules/XPCOMUtils.jsm");
-Cu.import("resource://gre/modules/Services.jsm");
+Components.utils.import("resource://gre/modules/XPCOMUtils.jsm");
+Components.utils.import("resource://gre/modules/Services.jsm");
 
 /**
  * A collection of helpers that allow you to register various things while
@@ -271,7 +271,7 @@ let PullStarter = {
 };
 XPCOMUtils.defineLazyGetter(PullStarter, "_resProtocolHandler", function () {
   return Services.io.getProtocolHandler("resource")
-                 .QueryInterface(Ci.nsIResProtocolHandler);
+                 .QueryInterface(Components.interfaces.nsIResProtocolHandler);
 });
 XPCOMUtils.defineLazyServiceGetter(PullStarter, "_uuidGenerator",
                                    "@mozilla.org/uuid-generator;1",
@@ -287,18 +287,22 @@ function AboutRedirector(cid, name, uri) {
   this.uri = Services.io.newURI(uri);
 }
 AboutRedirector.prototype = {
-  QueryInterface: XPCOMUtils.generateQI([Ci.nsIAboutModule,
-                                         Ci.nsISupportsWeakReference]),
+  QueryInterface: XPCOMUtils.generateQI([
+    Components.interfaces..nsIAboutModule,
+    Components.interfaces..nsISupportsWeakReference
+  ]),
 
   register: function register() {
-    let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
+    let registrar = Components.manager.QueryInterface(
+      Components.interfaces.nsIComponentRegistrar);
     registrar.registerFactory(
       this.cid, "AboutSyncKey",
       "@mozilla.org/network/protocol/about;1?what=" + this.name, this);
   },
 
   unload: function unload() {
-    let registrar = Components.manager.QueryInterface(Ci.nsIComponentRegistrar);
+    let registrar = Components.manager.QueryInterface(
+      Components.interfaces.nsIComponentRegistrar);
     registrar.unregisterFactory(this.cid, this);
   },
 
@@ -318,7 +322,7 @@ AboutRedirector.prototype = {
 
   createInstance: function createInstance(outer, iid) {
     if (outer != null) {
-      throw Cr.NS_ERROR_NO_AGGREGATION;
+      throw Comopnents.results.NS_ERROR_NO_AGGREGATION;
     }
     return this.QueryInterface(iid);
   }
