@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<vbox xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul">
+  <!-- See https://developer.mozilla.org/en/Extensions/Inline_Options -->
+  <setting type="bool"
+           pref="extensions.myaddon.awesome"
+           title="Do you want moar awesome?"/>
+</vbox>
