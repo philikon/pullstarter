@@ -38,12 +38,11 @@ let PullStarter = {
   registerUnloader: function registerUnloader(callback, window) {
     let unloaders = this._unloaders;
 
-    // Wrap the callback in a functiaon that ignores failures.
+    // Wrap the callback in a function that ignores failures.
     function unloader() {
       try {
         callback();
-      }
-      catch(ex) {
+      } catch(ex) {
         // Ignore.
       }
     }
@@ -225,8 +224,7 @@ let PullStarter = {
         if (documentElement.getAttribute("windowtype") == type) {
           callback(window);
         }
-      }
-      catch(ex) {
+      } catch(ex) {
         // Ignore.
       }
     }
