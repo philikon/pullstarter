@@ -83,13 +83,13 @@ let PullStarter = {
     function unloader() {
       try {
         callback();
-      } catch(ex) {
+      } catch (ex) {
         // Ignore.
       }
     }
     unloaders.push(unloader);
 
-    // Provide a way to remove the unloader
+    // Provide a way to remove the unloader.
     function removeUnloader() {
       let index = unloaders.indexOf(unloader);
       if (index != -1) {
@@ -97,7 +97,7 @@ let PullStarter = {
       }
     }
 
-    // If an associated window was specificed, we want to call the
+    // If an associated window was specified, we want to call the
     // unloader when the window dies, or when the extension unloads.
     if (window) {
       // That means when the window gets unloaded, we want to call the unloader
@@ -121,7 +121,7 @@ let PullStarter = {
   },
 
   /**
-   * Register a 'chrome.manifest'
+   * Register a 'chrome.manifest'.
    * 
    * @param data
    *        The add-on data object passed into the startup() function.
@@ -265,7 +265,7 @@ let PullStarter = {
         if (documentElement.getAttribute("windowtype") == type) {
           callback(window);
         }
-      } catch(ex) {
+      } catch (ex) {
         // Ignore.
       }
     }
