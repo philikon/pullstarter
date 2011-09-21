@@ -5,3 +5,11 @@ This is a collection of helpers (pullstarter.js) and example code
 (bootstrap.js, etc.) for writing restartless Firefox add-ons without
 resorting to Jetpack for automatic unloading. This is ideal for small
 and nimble add-ons for which Jetpack would be unnecessary bloat.
+
+To start a new add-on, get a copy of this directory and simply fill in
+the values for your add-on in the usual places:
+
+* install.rdf
+* bootstrap.js
+* chrome.manifest (you may not need this)
+* options.xul (you may not need this)
