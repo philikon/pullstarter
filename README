@@ -1,0 +1,7 @@
+Pullstarter
+===========
+
+This is a collection of helpers (pullstarter.js) and example code
+(bootstrap.js, etc.) for writing restartless Firefox add-ons without
+resorting to Jetpack for automatic unloading. This is ideal for small
+and nimble add-ons for which Jetpack would be unnecessary bloat.
