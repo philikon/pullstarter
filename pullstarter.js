@@ -265,6 +265,7 @@ let PullStarter = {
     });
   },
 
+  //TODO import + unload JSMs?
   //TODO l10n stringbundles
   //TODO stylesheets?
 };
@@ -331,7 +332,6 @@ function shutdown() {
     return;
   }
   PullStarter.unload();
-  //XXX remove default prefs
 }
 
 function install() {
