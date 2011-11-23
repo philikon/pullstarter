@@ -327,15 +327,15 @@ function AboutRedirector(cid, name, uri) {
 }
 AboutRedirector.prototype = {
   QueryInterface: XPCOMUtils.generateQI([
-    Components.interfaces..nsIAboutModule,
-    Components.interfaces..nsISupportsWeakReference
+    Components.interfaces.nsIAboutModule,
+    Components.interfaces.nsISupportsWeakReference
   ]),
 
   register: function register() {
     let registrar = Components.manager.QueryInterface(
       Components.interfaces.nsIComponentRegistrar);
     registrar.registerFactory(
-      this.cid, "AboutSyncKey",
+      this.cid, "About" + this.name,
       "@mozilla.org/network/protocol/about;1?what=" + this.name, this);
   },
 
@@ -361,7 +361,7 @@ AboutRedirector.prototype = {
 
   createInstance: function createInstance(outer, iid) {
     if (outer != null) {
-      throw Comopnents.results.NS_ERROR_NO_AGGREGATION;
+      throw Components.results.NS_ERROR_NO_AGGREGATION;
     }
     return this.QueryInterface(iid);
   }
