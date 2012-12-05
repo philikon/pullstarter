@@ -370,7 +370,7 @@ AboutRedirector.prototype = {
 
 /*** Default implementations for bootstrapping functions ***/
 
-function shutdown() {
+function shutdown(data, reason) {
   if (reason == APP_SHUTDOWN) {
     return;
   }
