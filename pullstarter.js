@@ -236,10 +236,10 @@ let PullStarter = {
    */
   registerEventListener:
   function registerEventListener(element, event, callback, capture) {
-    node.addEventListener(event, func, !!capture);
+    element.addEventListener(event, callback, !!capture);
     let window = element.ownerDocument.defaultView;
     function removeListener() {
-      node.removeEventListener(event, func, !!capture);
+      element.removeEventListener(event, callback, !!capture);
     }
     let removeUnloader = this.registerUnloader(removeListener, window);
     return function removeEventListener() {
